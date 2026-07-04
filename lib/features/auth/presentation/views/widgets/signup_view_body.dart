@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/custom_button.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/auth_header.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/custom_button_with_google.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/signup_form_fields.dart';
 
 class SignupViewBody extends StatefulWidget {
@@ -41,6 +43,20 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 fullNameController: fullNameController,
                 emailController: emailController,
                 passwordController: passwordController,
+              ),
+
+              const SizedBox(height: 40),
+              CustomButton(
+                text: "Sign up",
+                onPressed: () async {
+                  if (_formKey.currentState!.validate()) {}
+                },
+              ),
+
+              const SizedBox(height: 24),
+              CustomButtonWithGoogle(
+                text: "Sign up with Google",
+                onPressed: () {},
               ),
             ],
           ),
