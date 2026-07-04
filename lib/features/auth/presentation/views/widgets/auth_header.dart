@@ -3,15 +3,7 @@ import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles
 
 class AuthHeader extends StatelessWidget {
   final String title;
-  final String subtitlePartOne;
-  final String subtitlePartTwo;
-
-  const AuthHeader({
-    super.key,
-    required this.title,
-    required this.subtitlePartOne,
-    required this.subtitlePartTwo,
-  });
+  const AuthHeader({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +12,11 @@ class AuthHeader extends StatelessWidget {
         children: [
           Text(title, style: Styles.textStyle32Bold),
           const SizedBox(height: 8),
-          Text(subtitlePartOne, style: Styles.textStyle16W400Poppins),
-          Text(subtitlePartTwo, style: Styles.textStyle16W400Poppins),
+          Text(
+            "Fill your details or continue with",
+            style: Styles.textStyle16W400Poppins,
+          ),
+          Text("social media", style: Styles.textStyle16W400Poppins),
         ],
       ),
     );

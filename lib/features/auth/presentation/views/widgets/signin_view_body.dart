@@ -34,11 +34,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
           key: _formKey,
           child: Column(
             children: [
-              const AuthHeader(
-                title: "Hello Again!",
-                subtitlePartOne: "Fill your details or continue with",
-                subtitlePartTwo: "social media",
-              ),
+              const AuthHeader(title: "Hello Again!"),
               const SizedBox(height: 30),
 
               SigninFormFields(
