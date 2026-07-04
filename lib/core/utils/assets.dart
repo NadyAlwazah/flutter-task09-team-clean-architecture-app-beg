@@ -11,6 +11,7 @@ class AssetsData {
   static const iconFavoriteSvg = "${_icons}favorite.svg";
   static const iconFavoriteRedSvg = "${_icons}favorite_red.svg";
   static const markSvg = "${_icons}mark.svg";
+  static const googleSvg = "${_icons}google.svg";
 
   // Images
   static const newSvg = "${_images}new.svg";
