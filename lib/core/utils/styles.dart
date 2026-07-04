@@ -16,16 +16,21 @@ abstract class Styles {
   static TextStyle get textStyle14W600 =>
       GoogleFonts.raleway(fontSize: 14.sp, fontWeight: FontWeight.w600);
 
-  static TextStyle get textStyle16W500 =>
+  static TextStyle get appBarTitleColor =>
       GoogleFonts.raleway(fontSize: 16.sp, fontWeight: FontWeight.w500);
 
   static TextStyle get textStyle12W500Raleway =>
       GoogleFonts.raleway(fontSize: 12.sp, fontWeight: FontWeight.w500);
+  static TextStyle get textStyle16W500Raleway => GoogleFonts.raleway(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.appBarTitleColor,
+  );
 
   static TextStyle get textStyle12Grey =>
       GoogleFonts.poppins(fontSize: 12.sp, color: Colors.grey);
 
-  static TextStyle get textStyle12W400 =>
+  static TextStyle get textStyle12W400Poppins =>
       GoogleFonts.poppins(fontSize: 12.sp, fontWeight: FontWeight.w400);
 
   static TextStyle get textStyle12W500Poppins => GoogleFonts.poppins(
@@ -34,7 +39,7 @@ abstract class Styles {
     color: AppColors.primary,
   );
 
-  static TextStyle get textStyle14W500 =>
+  static TextStyle get textStyle14W500Poppins =>
       GoogleFonts.poppins(fontSize: 14.sp, fontWeight: FontWeight.w500);
   static TextStyle get textStyle16W400Poppins => GoogleFonts.poppins(
     fontSize: 16.sp,
