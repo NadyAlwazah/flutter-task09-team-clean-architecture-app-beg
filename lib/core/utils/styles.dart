@@ -13,7 +13,7 @@ abstract class Styles {
   static TextStyle get textStyle16W600 =>
       GoogleFonts.raleway(fontSize: 16.sp, fontWeight: FontWeight.w600);
 
-  static TextStyle get textStyle14W600 =>
+  static TextStyle get textStyle14W600Raleway =>
       GoogleFonts.raleway(fontSize: 14.sp, fontWeight: FontWeight.w600);
 
   static TextStyle get appBarTitleColor =>

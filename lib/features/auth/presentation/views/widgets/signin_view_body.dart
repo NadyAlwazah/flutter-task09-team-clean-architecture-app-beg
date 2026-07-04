@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/custom_button.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/auth_header.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/recovery_password_text.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/signin_form_fields.dart';
@@ -45,6 +46,14 @@ class _SigninViewBodyState extends State<SigninViewBody> {
 
               const SizedBox(height: 12),
               const RecoveryPasswordText(),
+
+              const SizedBox(height: 24),
+              CustomButton(
+                text: "Sign In",
+                onPressed: () async {
+                  if (_formKey.currentState!.validate()) {}
+                },
+              ),
             ],
           ),
         ),
