@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/custom_button.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/auth_header.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/custom_button_with_google.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/donot_have_an_account_widget.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/recovery_password_text.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/widgets/signin_form_fields.dart';
 
@@ -61,6 +62,9 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 text: "Sign In with Google",
                 onPressed: () {},
               ),
+
+              const SizedBox(height: 135),
+              const DonotHaveAnAccountWidget(),
             ],
           ),
         ),
