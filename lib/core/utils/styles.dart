@@ -4,8 +4,11 @@ import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/app_co
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class Styles {
-  static TextStyle get textStyle32Bold =>
-      GoogleFonts.raleway(fontSize: 32.sp, fontWeight: FontWeight.bold);
+  static TextStyle get textStyle32Bold => GoogleFonts.raleway(
+    fontSize: 32.sp,
+    fontWeight: FontWeight.bold,
+    color: AppColors.appBarTitleColor,
+  );
 
   static TextStyle get textStyle16W600 =>
       GoogleFonts.raleway(fontSize: 16.sp, fontWeight: FontWeight.w600);
@@ -33,4 +36,9 @@ abstract class Styles {
 
   static TextStyle get textStyle14W500 =>
       GoogleFonts.poppins(fontSize: 14.sp, fontWeight: FontWeight.w500);
+  static TextStyle get textStyle16W400Poppins => GoogleFonts.poppins(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textSubTitle,
+  );
 }
