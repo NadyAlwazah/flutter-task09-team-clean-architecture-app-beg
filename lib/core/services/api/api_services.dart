@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/services/api/app_link.dart';
 import 'package:http/http.dart' as http;
 
 class ApiServices {
@@ -28,6 +29,27 @@ class ApiServices {
         headers: headers,
         body: body != null ? jsonEncode(body) : null,
       );
+      return _processResponse(response);
+    } on SocketException {
+      throw Exception("No Internet connection available.");
+    }
+  }
+
+  // GET Request
+  static Future<dynamic> getData(
+    String endpoint, {
+    Map<String, String>? header,
+  }) async {
+    Map<String, String> headers = {};
+
+    if (header != null) {
+      headers.addAll(header);
+    }
+
+    final uri = Uri.parse("${AppLink.baseUrl}$endpoint");
+
+    try {
+      final response = await http.get(uri, headers: headers);
       return _processResponse(response);
     } on SocketException {
       throw Exception("No Internet connection available.");
