@@ -8,8 +8,9 @@ final class SigninInitial extends SigninState {}
 final class SigninLoading extends SigninState {}
 
 final class SigninSuccess extends SigninState {
-  final dynamic data;
-  SigninSuccess(this.data);
+  final UserModel user;
+
+  SigninSuccess(this.user);
 }
 
 final class SigninError extends SigninState {
