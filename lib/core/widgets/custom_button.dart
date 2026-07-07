@@ -8,12 +8,14 @@ class CustomButton extends StatelessWidget {
   final String? text;
   final VoidCallback? onPressed;
   final bool isLoading;
+  final double? radius;
 
   const CustomButton({
     super.key,
     this.text,
     this.onPressed,
     this.isLoading = false,
+    this.radius,
   });
 
   @override
@@ -24,7 +26,7 @@ class CustomButton extends StatelessWidget {
         backgroundColor: AppColors.primary,
         minimumSize: const Size(double.infinity, 50),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14.r),
+          borderRadius: BorderRadius.circular(radius ?? 14.r),
         ),
       ),
       child: isLoading

@@ -38,6 +38,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
         child: Form(
           key: _formKey,
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               const AuthHeader(title: "Hello Again!"),
               const SizedBox(height: 30),
@@ -54,8 +55,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               BlocConsumer<SigninCubit, SigninState>(
                 listener: (context, state) {
                   if (state is SigninSuccess) {
-                    //!!!!!
-                    context.go(AppRouter.kHome);
+                    context.go(AppRouter.kBottomBar);
                   } else if (state is SigninError) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       CustomSnackBar(message: state.message, isError: true),

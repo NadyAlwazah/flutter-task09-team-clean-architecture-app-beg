@@ -1,3 +1,4 @@
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/layout/bottom_bar_layout.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/signin_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/signup_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/details/presentation/views/details_view.dart';
@@ -22,11 +23,16 @@ abstract class AppRouter {
   static const String kProfile = '/profile';
   static const String kSearch = '/search';
   static const String kSideMenu = '/side_menu';
+  static const String kBottomBar = '/bottom_bar';
 
   static final router = GoRouter(
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SigninView()),
       GoRoute(path: kSignup, builder: (context, state) => const SignupView()),
+      GoRoute(
+        path: kBottomBar,
+        builder: (context, state) => const BottomBarLayout(),
+      ),
       GoRoute(
         path: kOnBoarding,
         builder: (context, state) => const OnBoardingView(),

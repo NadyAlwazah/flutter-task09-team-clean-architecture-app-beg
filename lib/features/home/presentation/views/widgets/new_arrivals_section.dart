@@ -20,7 +20,7 @@ class NewArrivalsSection extends StatelessWidget {
           children: [
             Text(
               "New Arrivals",
-              style: Styles.textStyle16W600.copyWith(
+              style: Styles.textStyle16W600Raleway.copyWith(
                 color: AppColors.textPrimary,
               ),
             ),

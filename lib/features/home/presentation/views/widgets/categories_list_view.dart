@@ -20,14 +20,17 @@ class CategoriesListView extends StatelessWidget {
     ];
 
     return Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'Select Category',
-          style: Styles.textStyle16W600.copyWith(color: AppColors.textPrimary),
+          style: Styles.textStyle16W600Raleway.copyWith(
+            color: AppColors.textPrimary,
+          ),
         ),
-        SizedBox(height: 12.h),
 
+        SizedBox(height: 12.h),
         SizedBox(
           height: 40.h,
           child: ListView.builder(

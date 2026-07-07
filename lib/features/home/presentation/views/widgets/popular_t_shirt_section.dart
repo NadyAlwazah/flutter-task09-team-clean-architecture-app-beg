@@ -19,6 +19,7 @@ class _PopularTShirtSectionState extends State<PopularTShirtSection> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // See all العنوان + زر
@@ -44,9 +45,7 @@ class _PopularTShirtSectionState extends State<PopularTShirtSection> {
             ),
           ],
         ),
-
         const SizedBox(height: 16),
-
         BlocBuilder<ProductCubit, ProductStates>(
           builder: (context, state) {
             if (state is ProductLoadingState) {
@@ -62,7 +61,7 @@ class _PopularTShirtSectionState extends State<PopularTShirtSection> {
                 return Center(
                   child: Text(
                     "No products available at the moment.",
-                    style: Styles.textStyle16W600,
+                    style: Styles.textStyle16W600Raleway,
                   ),
                 );
               }
@@ -73,6 +72,7 @@ class _PopularTShirtSectionState extends State<PopularTShirtSection> {
                   : products.take(2).toList();
 
               return GridView.count(
+                padding: EdgeInsets.zero,
                 crossAxisCount: 2,
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),

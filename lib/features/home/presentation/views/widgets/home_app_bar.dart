@@ -11,17 +11,37 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
+
       backgroundColor: AppColors.backgroundColor,
       elevation: 0,
-      leading: IconButton(
-        padding: EdgeInsets.only(left: 20.w),
-        onPressed: () {},
-        icon: SvgPicture.asset(
-          AssetsData.iconMenuSvg,
-          width: 25.71.w,
-          height: 18.h,
-        ),
+      // leading: IconButton(
+      //   padding: EdgeInsets.only(left: 20.w),
+      //   onPressed: () {
+      //     Scaffold.of(context).openDrawer();
+      //   },
+      //   icon: SvgPicture.asset(
+      //     AssetsData.iconMenuSvg,
+      //     width: 25.71.w,
+      //     height: 18.h,
+      //   ),
+      // ),
+      leading: Builder(
+        builder: (context) {
+          return IconButton(
+            padding: EdgeInsets.only(left: 20.w),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: SvgPicture.asset(
+              AssetsData.iconMenuSvg,
+              width: 25.71.w,
+              height: 18.h,
+            ),
+          );
+        },
       ),
+
       title: Stack(
         clipBehavior: Clip.none,
         children: [
