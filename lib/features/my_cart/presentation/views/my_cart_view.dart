@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/core/app/routes.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/app_colors.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/custom_app_bar.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/widgets/my_cart_view_body.dart';
-import 'package:go_router/go_router.dart';
 
 class MyCartView extends StatelessWidget {
-  const MyCartView({super.key});
-
+  const MyCartView({super.key, required this.onBackToHome});
+  final VoidCallback onBackToHome;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,9 +17,7 @@ class MyCartView extends StatelessWidget {
             color: AppColors.appBarTitleColor,
           ),
           onTapLeading: () {
-            //!!!
-            // GoRouter.of(context).push(AppRouter.kBottomBar);
-            context.go(AppRouter.kBottomBar);
+            onBackToHome();
           },
         ),
         const Expanded(child: MyCartViewBody()),
