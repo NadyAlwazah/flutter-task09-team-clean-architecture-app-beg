@@ -10,7 +10,7 @@ import 'package:go_router/go_router.dart';
 abstract class AppRouter {
   static const String kOnBoarding = '/on_boarding';
   static const String kSignup = '/signup';
-  static const String kDetails = '/details';
+  static const String kDetails = '/details/:id';
   static const String kSearch = '/search';
   static const String kSideMenu = '/side_menu';
   static const String kBottomBar = '/bottom_bar';
@@ -33,7 +33,10 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: kDetails,
-          builder: (context, state) => const DetailsView(),
+          builder: (context, state) {
+            final id = int.parse(state.pathParameters['id']!);
+            return DetailsView(id: id);
+          },
         ),
 
         GoRoute(path: kSearch, builder: (context, state) => const SearchView()),

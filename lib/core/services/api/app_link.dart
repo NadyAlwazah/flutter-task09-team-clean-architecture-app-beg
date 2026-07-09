@@ -4,4 +4,5 @@ class AppLink {
   static String authBaseUrl = "https://dummyjson.com/";
   static String loginApi = "auth/login";
   static String profileApi = "users/1";
+  static String productsApi = "/products";
 }
