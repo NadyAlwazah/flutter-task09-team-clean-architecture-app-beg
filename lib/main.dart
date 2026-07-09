@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/app/routes.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/services/shared_preferences_services.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesServices().init();
+
   runApp(const EcommerceApp());
 }
 
