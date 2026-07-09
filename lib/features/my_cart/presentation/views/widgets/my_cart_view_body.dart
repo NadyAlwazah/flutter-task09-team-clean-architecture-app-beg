@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/app_loader.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/widgets/cart_checkout_section.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/widgets/empty_cart_widget.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/widgets/my_cart_item .dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/data/manager/cart_cubit/cart_cubit.dart';
 
@@ -20,59 +21,63 @@ class MyCartViewBody extends StatelessWidget {
             0,
             (sum, item) => sum + (item.price * item.quantity),
           );
-          double delivery = 60.20;
+          double delivery = subtotal != 0 ? 60.20 : 0;
           double total = subtotal == 0 ? 0 : subtotal + delivery;
 
           return Column(
             children: [
-              Expanded(
-                child: CustomScrollView(
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
-                        ),
-                        child: Text(
-                          "${cart.length} Item",
-                          style: Styles.textStyle16W500Poppins,
-                        ),
-                      ),
-                    ),
-
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate((context, index) {
-                        final product = cart[index];
-
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 14),
-                          child: MyCartItem(
-                            product: product,
-                            quantity: product.quantity,
-                            onIncrease: () {
-                              context.read<CartCubit>().increaseQuantity(
-                                product.id,
-                              );
-                            },
-                            onDecrease: () {
-                              context.read<CartCubit>().decreaseQuantity(
-                                product.id,
-                              );
-                            },
-                            onDelete: () {
-                              context.read<CartCubit>().removeFromCart(
-                                product.id,
-                              );
-                            },
+              cart.isNotEmpty
+                  ? Expanded(
+                      child: CustomScrollView(
+                        slivers: [
+                          SliverToBoxAdapter(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 10,
+                              ),
+                              child: Text(
+                                "${cart.length} Item",
+                                style: Styles.textStyle16W500Poppins,
+                              ),
+                            ),
                           ),
-                        );
-                      }, childCount: cart.length),
-                    ),
-                  ],
-                ),
-              ),
 
+                          SliverList(
+                            delegate: SliverChildBuilderDelegate((
+                              context,
+                              index,
+                            ) {
+                              final product = cart[index];
+
+                              return Padding(
+                                padding: const EdgeInsets.only(bottom: 14),
+                                child: MyCartItem(
+                                  product: product,
+                                  quantity: product.quantity,
+                                  onIncrease: () {
+                                    context.read<CartCubit>().increaseQuantity(
+                                      product.id,
+                                    );
+                                  },
+                                  onDecrease: () {
+                                    context.read<CartCubit>().decreaseQuantity(
+                                      product.id,
+                                    );
+                                  },
+                                  onDelete: () {
+                                    context.read<CartCubit>().removeFromCart(
+                                      product.id,
+                                    );
+                                  },
+                                ),
+                              );
+                            }, childCount: cart.length),
+                          ),
+                        ],
+                      ),
+                    )
+                  : const EmptyCartWidget(),
               CartCheckoutSection(
                 subtotal: subtotal,
                 delivery: delivery,

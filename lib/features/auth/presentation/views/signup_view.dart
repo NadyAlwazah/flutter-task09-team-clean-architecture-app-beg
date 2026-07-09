@@ -11,7 +11,7 @@ class SignupView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColorItem,
-      appBar: CustomAppBar(onTapLeading: () => context.pop()),
+      appBar: CustomAppBar(onTapLeading: () => context.pop(), isAuth: true),
       body: const SignupViewBody(),
     );
   }

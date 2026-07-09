@@ -11,6 +11,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isActionIcon;
   final bool isLeadingSvg;
   final Widget? leadingSvg;
+  final bool isAuth;
   const CustomAppBar({
     super.key,
     this.title,
@@ -21,12 +22,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.isLeadingSvg = false,
     this.onTapLeading,
     this.leadingSvg,
+    this.isAuth = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.backgroundColorItem,
+      backgroundColor: isAuth
+          ? AppColors.backgroundColorItem
+          : AppColors.backgroundColor,
       elevation: 0,
 
       // leading
@@ -35,7 +39,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           : Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: CircleAvatar(
-                backgroundColor: AppColors.backgroundColor,
+                backgroundColor: isAuth
+                    ? AppColors.backgroundColor
+                    : AppColors.backgroundColorItem,
                 radius: 22.r,
                 child: GestureDetector(
                   onTap: onTapLeading,

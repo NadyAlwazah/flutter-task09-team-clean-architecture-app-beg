@@ -12,7 +12,7 @@ class SigninView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColorItem,
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(isAuth: true),
       body: BlocProvider(
         create: (context) => SigninCubit(),
         child: const SigninViewBody(),

@@ -13,7 +13,8 @@ class SharedPreferencesServices {
 
     // قراءة التوكن
     String? token = await SharedPreferencesServices.getAccessToken();
-
+    // String? token;
+    // clearTokens();
     // تمرير التوكن للروتر
     AppRouter.initRouter(isLoggedIn: token != null);
   }
