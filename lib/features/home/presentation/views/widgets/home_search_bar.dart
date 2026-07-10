@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/app/routes.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/app_colors.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/assets.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeSearchBar extends StatelessWidget {
   const HomeSearchBar({super.key});
@@ -26,6 +28,10 @@ class HomeSearchBar extends StatelessWidget {
               ],
             ),
             child: TextFormField(
+              readOnly: true,
+              onTap: () {
+                context.push(AppRouter.kSearch);
+              },
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(vertical: 16),
                 hintText: 'Looking for ......',

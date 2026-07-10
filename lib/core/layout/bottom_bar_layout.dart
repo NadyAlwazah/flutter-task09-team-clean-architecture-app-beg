@@ -9,6 +9,7 @@ import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/my_cart_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/presentation/views/notifications_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/profile/presentation/views/profile_view.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/side_menu/presentation/views/side_menu_view.dart';
 
 class BottomBarLayout extends StatefulWidget {
   const BottomBarLayout({super.key});
@@ -59,7 +60,7 @@ class _BottomBarLayoutState extends State<BottomBarLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: currentIndex == 0 ? const Drawer() : null,
+      drawer: currentIndex == 0 ? const Drawer(child: SideMenuView()) : null,
       body: _getPage(currentIndex),
 
       bottomNavigationBar: (currentIndex == 0 || currentIndex == 1)

@@ -4,7 +4,7 @@ import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/app_loader.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/widgets/cart_checkout_section.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/widgets/empty_cart_widget.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/widgets/my_cart_item .dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/widgets/my_cart_item.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/data/manager/cart_cubit/cart_cubit.dart';
 
 class MyCartViewBody extends StatelessWidget {
