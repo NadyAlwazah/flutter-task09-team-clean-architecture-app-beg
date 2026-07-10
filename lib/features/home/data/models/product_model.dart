@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 
 class ProductModel {
   final int id;
@@ -6,7 +7,7 @@ class ProductModel {
   final String description;
   final String category;
   final String image;
-
+  int quantity;
   ProductModel({
     required this.id,
     required this.title,
@@ -14,6 +15,7 @@ class ProductModel {
     required this.description,
     required this.category,
     required this.image,
+    this.quantity = 1,
   });
 
   factory ProductModel.fromMap(Map<String, dynamic> data) {
@@ -24,6 +26,7 @@ class ProductModel {
       description: data['description'] ?? "",
       category: data['category'] ?? "",
       image: data['image'] ?? "",
+      quantity: data['quantity'] ?? 1,
     );
   }
 
@@ -35,6 +38,7 @@ class ProductModel {
       'description': description,
       'category': category,
       'image': image,
+      'quantity': quantity,
     };
   }
 }

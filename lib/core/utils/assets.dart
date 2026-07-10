@@ -11,6 +11,11 @@ class AssetsData {
   static const iconFavoriteSvg = "${_icons}favorite.svg";
   static const iconFavoriteRedSvg = "${_icons}favorite_red.svg";
   static const markSvg = "${_icons}mark.svg";
+  static const googleSvg = "${_icons}google.svg";
+  static const homeIconSvg = "${_icons}home_icon.svg";
+  static const personIconSvg = "${_icons}person_icon.svg";
+  static const notificationIconSvg = "${_icons}notification_icon.svg";
+  static const deleteIconSvg = "${_icons}delete_icon.svg";
 
   // Images
   static const newSvg = "${_images}new.svg";

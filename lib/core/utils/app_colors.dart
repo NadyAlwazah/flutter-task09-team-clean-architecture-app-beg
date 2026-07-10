@@ -7,4 +7,7 @@ class AppColors {
   static const textPrimary = Color(0xFF3B3B3B);
   static const textSecondary = Color(0xFF6A6A6A);
   static const appBarTitleColor = Color(0xFF2B2B2B);
+  static const textSubTitle = Color(0xFF707B81);
+  static const linkTextColor = Color(0xFF1A1D1E);
+  static const priceColor = Color(0xFF1A2530);
 }

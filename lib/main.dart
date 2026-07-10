@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/app/routes.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/features/profile/presentation/manager/user_cubit.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/services/shared_preferences_services.dart';
 
-void main() {
-  runApp(
-    BlocProvider(
-      create: (context) => UserCubit()..getUserProfile(),
-      child: const EcommerceApp(),
-    ),
-  );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferencesServices().init();
+
+  runApp(const EcommerceApp());
 }
 
 class EcommerceApp extends StatelessWidget {
