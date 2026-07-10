@@ -4,6 +4,7 @@ import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/cust
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/favourite/presentation/views/favourite_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/data/manager/product_cubit/product_cubit.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/presentation/views/home_view.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/data/data_sources/cart_local_data_source.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/data/manager/cart_cubit/cart_cubit.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/my_cart_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/presentation/views/notifications_view.dart';
@@ -19,7 +20,10 @@ class BottomBarLayout extends StatefulWidget {
 class _BottomBarLayoutState extends State<BottomBarLayout> {
   int currentIndex = 0;
 
-  late final CartCubit cartCubit = CartCubit()..loadCart();
+  late final CartCubit cartCubit = CartCubit(
+    cartLocalDataSource: CartLocalDataSource(),
+  )..loadCart();
+
   Widget _getPage(int index) {
     switch (index) {
       case 0:

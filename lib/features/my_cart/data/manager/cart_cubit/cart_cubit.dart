@@ -1,18 +1,18 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/core/services/shared_preferences_services.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/data/models/product_model.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/data/data_sources/cart_local_data_source.dart';
 
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
-  CartCubit() : super(CartInitial());
-
+  CartCubit({required this.cartLocalDataSource}) : super(CartInitial());
+  final CartLocalDataSource cartLocalDataSource;
   List<ProductModel> cartItems = [];
 
   Future<void> loadCart() async {
     emit(CartLoading());
-    cartItems = await SharedPreferencesServices.getCart();
+    cartItems = await cartLocalDataSource.getCart();
     emit(CartLoaded(cartItems));
   }
 
@@ -28,7 +28,7 @@ class CartCubit extends Cubit<CartState> {
       newProduct = true;
     }
 
-    await SharedPreferencesServices.saveCart(cartItems);
+    await cartLocalDataSource.saveCart(cartItems);
     emit(CartLoaded(cartItems));
     return newProduct;
   }
@@ -37,7 +37,7 @@ class CartCubit extends Cubit<CartState> {
     final index = cartItems.indexWhere((item) => item.id == id);
     if (index != -1) {
       cartItems[index].quantity++;
-      await SharedPreferencesServices.saveCart(cartItems);
+      await cartLocalDataSource.saveCart(cartItems);
       emit(CartLoaded(cartItems));
     }
   }
@@ -51,14 +51,14 @@ class CartCubit extends Cubit<CartState> {
         cartItems.removeAt(index);
       }
 
-      await SharedPreferencesServices.saveCart(cartItems);
+      await cartLocalDataSource.saveCart(cartItems);
       emit(CartLoaded(cartItems));
     }
   }
 
   Future<void> removeFromCart(int id) async {
     cartItems.removeWhere((item) => item.id == id);
-    await SharedPreferencesServices.saveCart(cartItems);
+    await cartLocalDataSource.saveCart(cartItems);
     emit(CartLoaded(cartItems));
   }
 }
