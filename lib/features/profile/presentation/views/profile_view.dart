@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/app_colors.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/assets.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/app_loader.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/custom_app_bar.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/profile/data/manager/user_cubit.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/profile/data/manager/user_state.dart';
-import '../widgets/custom_profile_field.dart';
+import 'widgets/custom_profile_field.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key, required this.onBackToHome});
@@ -40,30 +41,20 @@ class _ProfileViewState extends State<ProfileView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundColor: Colors.grey[200],
-            child: IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios_new,
-                size: 16,
-                color: Color(0xFF1A1A1A),
-              ),
-              onPressed: () => widget.onBackToHome(),
-            ),
-          ),
+      appBar: CustomAppBar(
+        isAuth: true,
+        title: "Profile",
+        textStyle: Styles.textStyle20W600Raleway.copyWith(
+          color: AppColors.appBarTitleColor,
         ),
-        title: Text("Profile", style: Styles.textStyle20W600Raleway),
-        centerTitle: true,
+        onTapLeading: () {
+          widget.onBackToHome();
+        },
       ),
       body: BlocBuilder<UserCubit, UserState>(
         builder: (context, state) {
           if (state is UserLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: AppLoader());
           }
 
           if (state is UserSuccess) {

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/app_colors.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/assets.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles.dart';
-import '../../data/models/notifications_model.dart';
+import '../../../data/models/notifications_model.dart';
 
 class NotificationItem extends StatelessWidget {
   final NotificationModel notification;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/favorite_provider.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/features/favourite/presentation/widgets/product_card_favourite.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/favourite/presentation/views/widgets/product_card_favourite.dart';
 import 'package:provider/provider.dart';
 
 class FavouriteViewBody extends StatelessWidget {

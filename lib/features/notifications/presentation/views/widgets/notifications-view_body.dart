@@ -5,9 +5,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/app_colors.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/assets.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/managers/notifications_cubit.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/managers/notifications_state.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/presentation/widgets/notification_list.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/data/managers/notifications_cubit.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/data/managers/notifications_state.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/presentation/views/widgets/notification_list.dart';
 
 class NotificationsBody extends StatelessWidget {
   const NotificationsBody({super.key, required this.onBackToHome});

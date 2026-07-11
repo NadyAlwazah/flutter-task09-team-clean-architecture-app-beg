@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/app/routes.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/features/on_boarding/presentation/widgets/onboard_page_content.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/on_boarding/presentation/views/widgets/onboard_page_content.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

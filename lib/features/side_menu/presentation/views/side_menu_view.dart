@@ -21,7 +21,7 @@ class SideMenuView extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xFF1E1E1E),
-      body: SafeArea(child: SideMenuViewBody(user: dummyUser)),
+      body: SideMenuViewBody(user: dummyUser),
     );
   }
 }
