@@ -3,8 +3,8 @@ import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/pre
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
-
+  const HomeView({super.key, this.onCartTap});
+  final VoidCallback? onCartTap;
   @override
   State<HomeView> createState() => _HomeViewState();
 }
@@ -12,11 +12,11 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        HomeAppBar(),
-        Expanded(child: HomeViewBody()),
+        HomeAppBar(onCartTap: widget.onCartTap),
+        const Expanded(child: HomeViewBody()),
       ],
     );
   }
