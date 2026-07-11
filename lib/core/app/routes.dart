@@ -23,6 +23,8 @@ abstract class AppRouter {
     router = GoRouter(
       initialLocation: isLoggedIn ? kBottomBar : '/',
       routes: [
+        GoRoute(path: '/', builder: (context, state) => const OnBoardingView()),
+        GoRoute(path: kSignin, builder: (context, state) => const SigninView()),
         GoRoute(path: '/', builder: (context, state) => const SigninView()),
         GoRoute(path: kSignup, builder: (context, state) => const SignupView()),
         GoRoute(
