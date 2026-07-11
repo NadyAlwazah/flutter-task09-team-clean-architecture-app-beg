@@ -27,7 +27,10 @@ class _ProductCardState extends State<ProductCard> {
       children: [
         GestureDetector(
           onTap: () {
-            context.push('/details/${widget.product.id}');
+            GoRouter.of(context).push(
+              '/details/${widget.product.id}',
+              extra: context.read<CartCubit>(),
+            );
           },
           child: Container(
             width: 157.w,
