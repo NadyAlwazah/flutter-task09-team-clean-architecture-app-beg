@@ -13,6 +13,7 @@ class AssetsData {
 
   // Icons العامة المتبقية في المشروع
   static const iconMenuSvg = "${_icons}menu.svg";
+  static const iconHighlightSvg = "${_icons}Highlight.svg";
   static const iconBagSvg = "${_icons}bag.svg";
   static const iconSearchSvg = "${_icons}search.svg";
   static const iconFilterSvg = "${_icons}sliders.svg";

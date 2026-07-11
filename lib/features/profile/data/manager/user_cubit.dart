@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/services/api/api_services.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/services/api/app_link.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/profile/data/models/profile_model.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/core/services/api_services.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/core/services/app_link.dart';
+
 import 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
@@ -20,7 +21,11 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  Future<void> updateUserProfile({required String name, required String email, required String password}) async {
+  Future<void> updateUserProfile({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
     if (currentUser == null) return;
 
     emit(UserUpdating());
