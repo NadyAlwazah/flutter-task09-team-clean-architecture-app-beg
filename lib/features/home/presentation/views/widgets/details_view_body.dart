@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/app_loader.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/custom_snack_bar.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/data/manager/product_cubit/product_cubit.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/data/manager/cart_cubit/cart_cubit.dart';
 
 class DetailsViewBody extends StatelessWidget {
   final int id;
@@ -271,7 +273,21 @@ class DetailsViewBody extends StatelessWidget {
                             ),
                             elevation: 0,
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            final isNewProduct = await context
+                                .read<CartCubit>()
+                                .addToCart(product);
+
+                            if (!context.mounted) return;
+
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              CustomSnackBar(
+                                message: isNewProduct
+                                    ? "Product added to cart"
+                                    : "Product quantity increased",
+                              ),
+                            );
+                          },
                           icon: const Icon(
                             Icons.shopping_bag_outlined,
                             color: Colors.white,

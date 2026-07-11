@@ -1,8 +1,10 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/layout/bottom_bar_layout.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/signin_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/signup_view.dart';
 
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/presentation/views/details_view.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/data/manager/cart_cubit/cart_cubit.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/search/presentation/views/search_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/side_menu/presentation/views/side_menu_view.dart';
@@ -39,7 +41,13 @@ abstract class AppRouter {
           path: kDetails,
           builder: (context, state) {
             final id = int.parse(state.pathParameters['id']!);
-            return DetailsView(id: id);
+
+            final cartCubit = state.extra as CartCubit;
+
+            return BlocProvider.value(
+              value: cartCubit,
+              child: DetailsView(id: id),
+            );
           },
         ),
 
