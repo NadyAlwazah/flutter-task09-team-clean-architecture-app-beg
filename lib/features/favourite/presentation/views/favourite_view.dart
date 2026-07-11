@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/features/favourite/presentation/views/widgets/favourite_view_body.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/favourite/presentation/views/favourite_view_body.dart';
 
 class FavouriteView extends StatelessWidget {
-  const FavouriteView({super.key});
+  const FavouriteView({super.key, required this.onBackToHome});
+  final VoidCallback onBackToHome;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class FavouriteView extends StatelessWidget {
                 size: 16,
                 color: Color(0xFF1A1A1A),
               ),
-              onPressed: () {},
+              onPressed: () => onBackToHome(),
             ),
           ),
         ),

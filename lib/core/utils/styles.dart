@@ -45,6 +45,9 @@ abstract class Styles {
   static TextStyle get textStyle14W400Raleway =>
       GoogleFonts.raleway(fontSize: 14.sp, fontWeight: FontWeight.w400);
 
+  static TextStyle get textStyle20W600Raleway =>
+      GoogleFonts.raleway(fontSize: 20.sp, fontWeight: FontWeight.w600);
+
   static TextStyle get textStyle12Grey =>
       GoogleFonts.poppins(fontSize: 12.sp, color: Colors.grey);
 

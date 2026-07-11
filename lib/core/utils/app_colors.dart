@@ -17,4 +17,14 @@ class AppColors {
   static const textSubTitle = Color(0xFF707B81);
   static const linkTextColor = Color(0xFF1A1D1E);
   static const priceColor = Color(0xFF1A2530);
+
+  static const List<Color> productColors = [
+    Color(0xFFCB1D1D),
+    Color(0xFF0B2F8B),
+    Color(0xFF2256B9),
+    Color(0xFFA9CFEB),
+    Color(0xFF7DDBDA),
+    Color(0xFF606ACB),
+    Color(0xFF1F3267),
+  ];
 }

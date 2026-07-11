@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/custom_bottom_nav_bar.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/widgets/custom_button_nav_bar.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/favourite/presentation/views/favourite_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/data/manager/product_cubit/product_cubit.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/presentation/views/home_view.dart';
@@ -8,6 +8,7 @@ import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/data/manager/cart_cubit/cart_cubit.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/my_cart/presentation/views/my_cart_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/presentation/views/notifications_view.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/features/profile/data/manager/user_cubit.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/profile/presentation/views/profile_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/side_menu/presentation/views/side_menu_view.dart';
 
@@ -33,6 +34,7 @@ class _BottomBarLayoutState extends State<BottomBarLayout> {
             BlocProvider(create: (_) => ProductCubit()..getProducts()),
             BlocProvider.value(value: cartCubit),
           ],
+
           child: HomeView(
             onCartTap: () {
               setState(() {
@@ -42,7 +44,16 @@ class _BottomBarLayoutState extends State<BottomBarLayout> {
           ),
         );
       case 1:
-        return const FavouriteView();
+        return BlocProvider.value(
+          value: cartCubit,
+          child: FavouriteView(
+            onBackToHome: () {
+              setState(() {
+                currentIndex = 0;
+              });
+            },
+          ),
+        );
       case 2:
         return BlocProvider.value(
           value: cartCubit,
@@ -63,7 +74,16 @@ class _BottomBarLayoutState extends State<BottomBarLayout> {
           },
         );
       case 4:
-        return const ProfileView();
+        return BlocProvider(
+          create: (context) => UserCubit(),
+          child: ProfileView(
+            onBackToHome: () {
+              setState(() {
+                currentIndex = 0;
+              });
+            },
+          ),
+        );
       default:
         return const HomeView();
     }
