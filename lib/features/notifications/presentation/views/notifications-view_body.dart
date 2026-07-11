@@ -10,8 +10,8 @@ import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifica
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/notifications/presentation/widgets/notification_list.dart';
 
 class NotificationsBody extends StatelessWidget {
-  const NotificationsBody({super.key});
-
+  const NotificationsBody({super.key, required this.onBackToHome});
+  final VoidCallback onBackToHome;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +32,7 @@ class NotificationsBody extends StatelessWidget {
                 color: AppColors.onboardBackgroundColor,
                 size: 16,
               ),
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => onBackToHome(),
             ),
           ),
         ),

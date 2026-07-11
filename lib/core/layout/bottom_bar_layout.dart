@@ -33,7 +33,13 @@ class _BottomBarLayoutState extends State<BottomBarLayout> {
             BlocProvider(create: (_) => ProductCubit()..getProducts()),
             BlocProvider.value(value: cartCubit),
           ],
-          child: const HomeView(),
+          child: HomeView(
+            onCartTap: () {
+              setState(() {
+                currentIndex = 2;
+              });
+            },
+          ),
         );
       case 1:
         return const FavouriteView();
@@ -49,7 +55,13 @@ class _BottomBarLayoutState extends State<BottomBarLayout> {
           ),
         );
       case 3:
-        return const NotificationsView();
+        return NotificationsView(
+          onBackToHome: () {
+            setState(() {
+              currentIndex = 0;
+            });
+          },
+        );
       case 4:
         return const ProfileView();
       default:
