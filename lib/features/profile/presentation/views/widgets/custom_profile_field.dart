@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/app_colors.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles.dart';
 
 class CustomProfileField extends StatelessWidget {
