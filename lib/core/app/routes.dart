@@ -1,6 +1,7 @@
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/layout/bottom_bar_layout.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/signin_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/auth/presentation/views/signup_view.dart';
+
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/home/presentation/views/details_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/features/search/presentation/views/search_view.dart';
@@ -8,7 +9,8 @@ import 'package:flutter_task09_team_clean_architecture_app_beg/features/side_men
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
-  static const String kOnBoarding = '/on_boarding';
+  static const String kOnBoarding = '/';
+  static const String kSignin = '/signin';
   static const String kSignup = '/signup';
   static const String kDetails = '/details/:id';
   static const String kSearch = '/search';
