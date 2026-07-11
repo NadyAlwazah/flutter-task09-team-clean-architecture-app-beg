@@ -72,7 +72,12 @@ class _BottomBarLayoutState extends State<BottomBarLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: currentIndex == 0 ? const Drawer(child: SideMenuView()) : null,
+      drawer: currentIndex == 0
+          ? Drawer(
+              width: MediaQuery.of(context).size.width,
+              child: const SideMenuView(),
+            )
+          : null,
       body: _getPage(currentIndex),
 
       bottomNavigationBar: (currentIndex == 0 || currentIndex == 1)

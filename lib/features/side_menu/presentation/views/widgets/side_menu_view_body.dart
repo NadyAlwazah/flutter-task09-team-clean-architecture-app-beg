@@ -33,10 +33,7 @@ class SideMenuViewBody extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             user.email, // تم التعديل لتطابق خاصية ملفكِ الحقيقي
-            style: TextStyle(
-              color: Colors.grey[400],
-              fontSize: 14,
-            ),
+            style: TextStyle(color: Colors.grey[400], fontSize: 14),
           ),
           const SizedBox(height: 40),
           _buildMenuItem(Icons.person_outline, 'Profile', () {}),
@@ -54,7 +51,12 @@ class SideMenuViewBody extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItem(IconData icon, String title, VoidCallback onTap, {bool hasArrow = true}) {
+  Widget _buildMenuItem(
+    IconData icon,
+    String title,
+    VoidCallback onTap, {
+    bool hasArrow = true,
+  }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: ListTile(
@@ -70,7 +72,11 @@ class SideMenuViewBody extends StatelessWidget {
           ),
         ),
         trailing: hasArrow
-            ? const Icon(Icons.arrow_forward_ios, color: Colors.white70, size: 16)
+            ? const Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white70,
+                size: 16,
+              )
             : null,
       ),
     );
