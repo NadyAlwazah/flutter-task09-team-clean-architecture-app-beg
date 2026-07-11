@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/app_colors.dart';
 import 'package:flutter_task09_team_clean_architecture_app_beg/core/utils/styles.dart';
 
 class OnboardPageContent extends StatelessWidget {
@@ -99,7 +100,10 @@ class OnboardPageContent extends StatelessWidget {
                 Text(
                   item["subtitle"],
                   textAlign: TextAlign.center,
-                  style: Styles.textStyle16W400Poppins.copyWith(height: 1.5),
+                  style: Styles.textStyle16W400Poppins.copyWith(
+                    height: 1.5,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             ],

@@ -12,9 +12,10 @@ class NotificationList extends StatelessWidget {
     final yesterday = notifications.where((n) => !n.isRecent).toList();
 
     return ListView(
+      padding: EdgeInsets.zero,
       children: [
         const Padding(
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.only(left: 20),
           child: Text(
             "Recent",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),

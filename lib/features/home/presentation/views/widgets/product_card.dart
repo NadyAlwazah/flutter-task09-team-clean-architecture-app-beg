@@ -90,8 +90,6 @@ class _ProductCardState extends State<ProductCard> {
             ),
           ),
         ),
-
-        /// زر الإضافة
         Positioned(
           right: 0,
           bottom: 0,
